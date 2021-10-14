@@ -22,7 +22,8 @@
   "homepage": "https://github.com/johniak/react-web-gifted-chat#readme",
   "scripts": {
     "lint": "eslint . --ext .js,.jsx",
-    "compile": "export BABEL_ENV='production' && rm -rf ./dist && mkdir dist &&  rollup -c -i src/index.js -o dist/index.js"
+    "compileW": "set BABEL_ENV=production&& rd /s /q dist && md dist && rollup -c -i src/index.js -o dist/index.js",
+    "compileU": "export BABEL_ENV='production' && rm -rf ./dist && mkdir dist &&  rollup -c -i src/index.js -o dist/index.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",

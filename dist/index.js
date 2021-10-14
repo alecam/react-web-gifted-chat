@@ -1094,15 +1094,12 @@ function (_React$Component) {
           currentMessage = _this$props.currentMessage,
           imageProps = _this$props.imageProps,
           containerStyle = _this$props.containerStyle,
-          imageStyle = _this$props.imageStyle;
+          imageStyle = _this$props.imageStyle,
+          lightboxProps = _this$props.lightboxProps;
       var _this$state = this.state,
           isOpen = _this$state.isOpen,
           messageIndex = _this$state.messageIndex;
-
-      if (isOpen) {
-        console.log('messageIndex', messageIndex);
-      }
-
+      console.log('lightboxProps', lightboxProps);
       return React__default.createElement(TouchableOpacity, {
         onPress: this.onClickImage,
         style: _objectSpread({}, styles$5.container, containerStyle)
@@ -1111,7 +1108,7 @@ function (_React$Component) {
         source: {
           uri: currentMessage.image
         }
-      })), isOpen && React__default.createElement(Lightbox, {
+      })), isOpen && React__default.createElement(Lightbox, Object.assign({}, lightboxProps, {
         onCloseRequest: function onCloseRequest() {
           return _this2.setState({
             isOpen: false
@@ -1130,7 +1127,7 @@ function (_React$Component) {
             messageIndex: (messageIndex + 1) % imageMessages.length
           });
         }
-      }));
+      })));
     }
   }], [{
     key: "getDerivedStateFromProps",
