@@ -1099,12 +1099,11 @@ function (_React$Component) {
       var _this$state = this.state,
           isOpen = _this$state.isOpen,
           messageIndex = _this$state.messageIndex;
-      console.log('lightboxProps', lightboxProps);
       return React__default.createElement(TouchableOpacity, {
         onPress: this.onClickImage,
         style: _objectSpread({}, styles$5.container, containerStyle)
       }, React__default.createElement(ReactNative.Image, Object.assign({}, imageProps, {
-        style: [styles$5.image, this.props.imageStyle],
+        style: [styles$5.image, imageStyle],
         source: {
           uri: currentMessage.image
         }
