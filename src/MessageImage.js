@@ -36,6 +36,9 @@ export default class MessageImage extends React.Component {
   render() {
     const { imageMessages, currentMessage, imageProps, containerStyle, imageStyle, lightboxProps } = this.props;
     const { isOpen, messageIndex } = this.state;
+
+    console.log('imageMessages', imageMessages);
+
     return (
       <TouchableOpacity
         onPress={this.onClickImage}
@@ -51,8 +54,8 @@ export default class MessageImage extends React.Component {
             {...lightboxProps}
             onCloseRequest={() => this.setState({ isOpen: false })}
             mainSrc={imageMessages[messageIndex].image}
-            nextSrc={imageMessages[(messageIndex + 1) % imageMessages.length].image}
-            prevSrc={imageMessages[(messageIndex + imageMessages.length - 1) % imageMessages.length].image}
+            nextSrc={imageMessages.length > 1 ? imageMessages[(messageIndex + 1) % imageMessages.length].image : null}
+            prevSrc={imageMessages.length > 1 ? imageMessages[(messageIndex + imageMessages.length - 1) % imageMessages.length].image : null}
             onMovePrevRequest={() => this.setState({
               messageIndex: (messageIndex + imageMessages.length - 1) % imageMessages.length,
             })
@@ -61,7 +64,6 @@ export default class MessageImage extends React.Component {
               messageIndex: (messageIndex + 1) % imageMessages.length,
             })
             }
-
           />
         )}
       </TouchableOpacity>
