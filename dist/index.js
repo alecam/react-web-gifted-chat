@@ -1099,6 +1099,7 @@ function (_React$Component) {
       var _this$state = this.state,
           isOpen = _this$state.isOpen,
           messageIndex = _this$state.messageIndex;
+      console.log('imageMessages', imageMessages);
       return React__default.createElement(TouchableOpacity, {
         onPress: this.onClickImage,
         style: _objectSpread({}, styles$5.container, containerStyle)
@@ -1114,8 +1115,8 @@ function (_React$Component) {
           });
         },
         mainSrc: imageMessages[messageIndex].image,
-        nextSrc: imageMessages[(messageIndex + 1) % imageMessages.length].image,
-        prevSrc: imageMessages[(messageIndex + imageMessages.length - 1) % imageMessages.length].image,
+        nextSrc: imageMessages.length > 1 ? imageMessages[(messageIndex + 1) % imageMessages.length].image : null,
+        prevSrc: imageMessages.length > 1 ? imageMessages[(messageIndex + imageMessages.length - 1) % imageMessages.length].image : null,
         onMovePrevRequest: function onMovePrevRequest() {
           return _this2.setState({
             messageIndex: (messageIndex + imageMessages.length - 1) % imageMessages.length
