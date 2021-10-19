@@ -37,8 +37,6 @@ export default class MessageImage extends React.Component {
     const { imageMessages, currentMessage, imageProps, containerStyle, imageStyle, lightboxProps } = this.props;
     const { isOpen, messageIndex } = this.state;
 
-    console.log('imageMessages', imageMessages);
-
     return (
       <TouchableOpacity
         onPress={this.onClickImage}

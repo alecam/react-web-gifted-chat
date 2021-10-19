@@ -1099,7 +1099,6 @@ function (_React$Component) {
       var _this$state = this.state,
           isOpen = _this$state.isOpen,
           messageIndex = _this$state.messageIndex;
-      console.log('imageMessages', imageMessages);
       return React__default.createElement(TouchableOpacity, {
         onPress: this.onClickImage,
         style: _objectSpread({}, styles$5.container, containerStyle)
