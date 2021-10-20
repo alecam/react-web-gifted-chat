@@ -182,6 +182,7 @@ export default class Bubble extends React.Component {
               </View>
             </View>
           </TouchableOpacity>
+          aaa
           {this.renderTime()}
         </View>
       </View>

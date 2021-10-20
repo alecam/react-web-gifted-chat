@@ -1214,7 +1214,8 @@ function Time(_ref, context) {
       textStyle = _ref.textStyle,
       timeTextStyle = _ref.timeTextStyle;
   return React__default.createElement(ReactNative.View, {
-    style: [styles$7[position].container, containerStyle[position]]
+    style: [styles$7[position].container, containerStyle[position]],
+    className: "timeDiv"
   }, React__default.createElement(ReactNative.Text, {
     style: [styles$7[position].text, textStyle[position], timeTextStyle[position]]
   }, moment(currentMessage.createdAt).locale(context.getLocale()).format(timeFormat)));
@@ -1459,7 +1460,7 @@ function (_React$Component) {
         accessibilityTraits: "text"
       }, this.props.touchableProps), React__default.createElement(ReactNative.View, null, this.renderCustomView(), this.renderMessageImage(), this.renderMessageVideo(), this.renderMessageText(), React__default.createElement(ReactNative.View, {
         style: [styles$8[this.props.position].bottom, this.props.bottomContainerStyle[this.props.position]]
-      }, this.renderUsername(), this.renderTicks()))), this.renderTime()));
+      }, this.renderUsername(), this.renderTicks()))), "aaa", this.renderTime()));
     }
   }]);
 
