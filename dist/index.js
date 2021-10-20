@@ -1280,7 +1280,7 @@ function (_React$Component) {
       if (_this.props.onLongPress) {
         _this.props.onLongPress(_this.context, _this.props.currentMessage);
       } else if (_this.props.currentMessage.text) {
-        var options = ['Copy Text', 'Cancel'];
+        var options = ["Copy Text", "Cancel"];
         var cancelButtonIndex = options.length - 1;
 
         _this.context.actionSheet().showActionSheetWithOptions({
@@ -1465,7 +1465,9 @@ function (_React$Component) {
       }, this.renderCustomView(), this.renderMessageImage(), this.renderMessageVideo(), this.renderMessageText(), React__default.createElement(ReactNative.View, {
         style: [styles$8[this.props.position].bottom, this.props.bottomContainerStyle[this.props.position]],
         className: "fourthContainerDiv"
-      }, this.renderUsername(), this.renderTicks()))), this.renderTime()));
+      }, this.renderUsername(), this.renderTicks())))), React__default.createElement(ReactNative.View, {
+        className: "timeContainerDivOuter"
+      }, this.renderTime()));
     }
   }]);
 
@@ -1475,14 +1477,14 @@ var styles$8 = {
   left: ReactNative.StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'flex-start'
+      alignItems: "flex-start"
     },
     wrapper: {
       borderRadius: 15,
       backgroundColor: Color.leftBubbleBackground,
       marginRight: 60,
       minHeight: 20,
-      justifyContent: 'flex-end'
+      justifyContent: "flex-end"
     },
     containerToNext: {
       borderBottomLeftRadius: 3
@@ -1491,21 +1493,21 @@ var styles$8 = {
       borderTopLeftRadius: 3
     },
     bottom: {
-      flexDirection: 'row',
-      justifyContent: 'flex-start'
+      flexDirection: "row",
+      justifyContent: "flex-start"
     }
   }),
   right: ReactNative.StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'flex-end'
+      alignItems: "flex-end"
     },
     wrapper: {
       borderRadius: 15,
       backgroundColor: Color.defaultBlue,
       marginLeft: 60,
       minHeight: 20,
-      justifyContent: 'flex-end'
+      justifyContent: "flex-end"
     },
     containerToNext: {
       borderBottomRightRadius: 3
@@ -1514,8 +1516,8 @@ var styles$8 = {
       borderTopRightRadius: 3
     },
     bottom: {
-      flexDirection: 'row',
-      justifyContent: 'flex-end'
+      flexDirection: "row",
+      justifyContent: "flex-end"
     }
   }),
   tick: {
@@ -1524,18 +1526,18 @@ var styles$8 = {
     color: Color.white
   },
   tickView: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginRight: 10
   },
   username: {
     top: -3,
     left: 0,
     fontSize: 12,
-    backgroundColor: 'transparent',
-    color: '#aaa'
+    backgroundColor: "transparent",
+    color: "#aaa"
   },
   usernameView: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginHorizontal: 10
   }
 };
@@ -1552,7 +1554,7 @@ Bubble.defaultProps = {
   renderUsername: null,
   renderTicks: null,
   renderTime: null,
-  position: 'left',
+  position: "left",
   currentMessage: {
     text: null,
     createdAt: null,

@@ -1,28 +1,26 @@
 /* eslint no-use-before-define: ["error", { "variables": false }] */
 
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from "prop-types";
+import React from "react";
 
-import { Text, Clipboard, StyleSheet, View, ViewPropTypes } from 'react-native';
+import { Text, Clipboard, StyleSheet, View, ViewPropTypes } from "react-native";
 
+import MessageText from "./MessageText";
+import MessageImage from "./MessageImage";
+import MessageVideo from "./MessageVideo";
 
-import MessageText from './MessageText';
-import MessageImage from './MessageImage';
-import MessageVideo from './MessageVideo';
+import Time from "./Time";
+import Color from "./Color";
 
-import Time from './Time';
-import Color from './Color';
-
-import { isSameUser, isSameDay } from './utils';
-import TouchableOpacity from './TouchableOpacity';
+import { isSameUser, isSameDay } from "./utils";
+import TouchableOpacity from "./TouchableOpacity";
 
 export default class Bubble extends React.Component {
-
   onLongPress = () => {
     if (this.props.onLongPress) {
       this.props.onLongPress(this.context, this.props.currentMessage);
     } else if (this.props.currentMessage.text) {
-      const options = ['Copy Text', 'Cancel'];
+      const options = ["Copy Text", "Cancel"];
       const cancelButtonIndex = options.length - 1;
       this.context.actionSheet().showActionSheetWithOptions(
         {
@@ -37,7 +35,7 @@ export default class Bubble extends React.Component {
             default:
               break;
           }
-        },
+        }
       );
     }
   };
@@ -107,14 +105,24 @@ export default class Bubble extends React.Component {
       return this.props.renderTicks(currentMessage);
     }
     if (currentMessage.user.id !== this.props.user.id) {
-        return;
+      return;
     }
-    if (currentMessage.sent || currentMessage.received || currentMessage.pending) {
+    if (
+      currentMessage.sent ||
+      currentMessage.received ||
+      currentMessage.pending
+    ) {
       return (
         <View style={styles.tickView}>
-          {currentMessage.sent && <Text style={[styles.tick, this.props.tickStyle]}>✓</Text>}
-          {currentMessage.received && <Text style={[styles.tick, this.props.tickStyle]}>✓</Text>}
-          {currentMessage.pending && <Text style={[styles.tick, this.props.tickStyle]}>🕓</Text>}
+          {currentMessage.sent && (
+            <Text style={[styles.tick, this.props.tickStyle]}>✓</Text>
+          )}
+          {currentMessage.received && (
+            <Text style={[styles.tick, this.props.tickStyle]}>✓</Text>
+          )}
+          {currentMessage.pending && (
+            <Text style={[styles.tick, this.props.tickStyle]}>🕓</Text>
+          )}
         </View>
       );
     }
@@ -140,7 +148,9 @@ export default class Bubble extends React.Component {
       }
       return (
         <View style={styles.usernameView}>
-          <Text style={[styles.username, this.props.usernameStyle]}>~ {currentMessage.user.name}</Text>
+          <Text style={[styles.username, this.props.usernameStyle]}>
+            ~ {currentMessage.user.name}
+          </Text>
         </View>
       );
     }
@@ -156,7 +166,13 @@ export default class Bubble extends React.Component {
 
   render() {
     return (
-      <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]} className="firstContainerDiv">
+      <View
+        style={[
+          styles[this.props.position].container,
+          this.props.containerStyle[this.props.position],
+        ]}
+        className="firstContainerDiv"
+      >
         <View
           style={[
             styles[this.props.position].wrapper,
@@ -177,32 +193,37 @@ export default class Bubble extends React.Component {
               {this.renderMessageImage()}
               {this.renderMessageVideo()}
               {this.renderMessageText()}
-              <View style={[styles[this.props.position].bottom, this.props.bottomContainerStyle[this.props.position]]} className="fourthContainerDiv">
+              <View
+                style={[
+                  styles[this.props.position].bottom,
+                  this.props.bottomContainerStyle[this.props.position],
+                ]}
+                className="fourthContainerDiv"
+              >
                 {this.renderUsername()}
                 {this.renderTicks()}
               </View>
             </View>
           </TouchableOpacity>
-          {this.renderTime()}
         </View>
+        <View className="timeContainerDivOuter">{this.renderTime()}</View>
       </View>
     );
   }
-
 }
 
 const styles = {
   left: StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'flex-start',
+      alignItems: "flex-start",
     },
     wrapper: {
       borderRadius: 15,
       backgroundColor: Color.leftBubbleBackground,
       marginRight: 60,
       minHeight: 20,
-      justifyContent: 'flex-end',
+      justifyContent: "flex-end",
     },
     containerToNext: {
       borderBottomLeftRadius: 3,
@@ -211,21 +232,21 @@ const styles = {
       borderTopLeftRadius: 3,
     },
     bottom: {
-      flexDirection: 'row',
-      justifyContent: 'flex-start',
+      flexDirection: "row",
+      justifyContent: "flex-start",
     },
   }),
   right: StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'flex-end',
+      alignItems: "flex-end",
     },
     wrapper: {
       borderRadius: 15,
       backgroundColor: Color.defaultBlue,
       marginLeft: 60,
       minHeight: 20,
-      justifyContent: 'flex-end',
+      justifyContent: "flex-end",
     },
     containerToNext: {
       borderBottomRightRadius: 3,
@@ -234,8 +255,8 @@ const styles = {
       borderTopRightRadius: 3,
     },
     bottom: {
-      flexDirection: 'row',
-      justifyContent: 'flex-end',
+      flexDirection: "row",
+      justifyContent: "flex-end",
     },
   }),
   tick: {
@@ -244,18 +265,18 @@ const styles = {
     color: Color.white,
   },
   tickView: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginRight: 10,
   },
   username: {
     top: -3,
     left: 0,
     fontSize: 12,
-    backgroundColor: 'transparent',
-    color: '#aaa',
+    backgroundColor: "transparent",
+    color: "#aaa",
   },
   usernameView: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginHorizontal: 10,
   },
 };
@@ -274,7 +295,7 @@ Bubble.defaultProps = {
   renderUsername: null,
   renderTicks: null,
   renderTime: null,
-  position: 'left',
+  position: "left",
   currentMessage: {
     text: null,
     createdAt: null,
@@ -303,7 +324,7 @@ Bubble.propTypes = {
   renderUsername: PropTypes.func,
   renderTime: PropTypes.func,
   renderTicks: PropTypes.func,
-  position: PropTypes.oneOf(['left', 'right']),
+  position: PropTypes.oneOf(["left", "right"]),
   currentMessage: PropTypes.object,
   nextMessage: PropTypes.object,
   previousMessage: PropTypes.object,
