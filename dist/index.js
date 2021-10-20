@@ -1215,7 +1215,7 @@ function Time(_ref, context) {
       timeTextStyle = _ref.timeTextStyle;
   return React__default.createElement(ReactNative.View, {
     style: [styles$7[position].container, containerStyle[position]],
-    className: "timeDiv"
+    className: "timeContainerDiv"
   }, React__default.createElement(ReactNative.Text, {
     style: [styles$7[position].text, textStyle[position], timeTextStyle[position]]
   }, moment(currentMessage.createdAt).locale(context.getLocale()).format(timeFormat)));
@@ -1451,16 +1451,21 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return React__default.createElement(ReactNative.View, {
-        style: [styles$8[this.props.position].container, this.props.containerStyle[this.props.position]]
+        style: [styles$8[this.props.position].container, this.props.containerStyle[this.props.position]],
+        className: "firstContainerDiv"
       }, React__default.createElement(ReactNative.View, {
-        style: [styles$8[this.props.position].wrapper, this.props.wrapperStyle[this.props.position], this.handleBubbleToNext(), this.handleBubbleToPrevious()]
+        style: [styles$8[this.props.position].wrapper, this.props.wrapperStyle[this.props.position], this.handleBubbleToNext(), this.handleBubbleToPrevious()],
+        className: "secondContainerDiv"
       }, React__default.createElement(TouchableOpacity, Object.assign({
         withoutFeedback: true,
         onLongPress: this.onLongPress,
         accessibilityTraits: "text"
-      }, this.props.touchableProps), React__default.createElement(ReactNative.View, null, this.renderCustomView(), this.renderMessageImage(), this.renderMessageVideo(), this.renderMessageText(), React__default.createElement(ReactNative.View, {
-        style: [styles$8[this.props.position].bottom, this.props.bottomContainerStyle[this.props.position]]
-      }, this.renderUsername(), this.renderTicks()))), "aaa", this.renderTime()));
+      }, this.props.touchableProps), React__default.createElement(ReactNative.View, {
+        className: "thirdContainerDiv"
+      }, this.renderCustomView(), this.renderMessageImage(), this.renderMessageVideo(), this.renderMessageText(), React__default.createElement(ReactNative.View, {
+        style: [styles$8[this.props.position].bottom, this.props.bottomContainerStyle[this.props.position]],
+        className: "fourthContainerDiv"
+      }, this.renderUsername(), this.renderTicks()))), this.renderTime()));
     }
   }]);
 

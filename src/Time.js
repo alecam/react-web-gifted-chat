@@ -14,7 +14,7 @@ export default function Time(
   context,
 ) {
   return (
-    <View style={[styles[position].container, containerStyle[position]]} className="timeDiv">
+    <View style={[styles[position].container, containerStyle[position]]} className="timeContainerDiv">
       <Text style={[styles[position].text, textStyle[position], timeTextStyle[position]]}>
         {moment(currentMessage.createdAt)
           .locale(context.getLocale())

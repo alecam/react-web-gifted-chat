@@ -156,7 +156,7 @@ export default class Bubble extends React.Component {
 
   render() {
     return (
-      <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
+      <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]} className="firstContainerDiv">
         <View
           style={[
             styles[this.props.position].wrapper,
@@ -164,6 +164,7 @@ export default class Bubble extends React.Component {
             this.handleBubbleToNext(),
             this.handleBubbleToPrevious(),
           ]}
+          className="secondContainerDiv"
         >
           <TouchableOpacity
             withoutFeedback
@@ -171,18 +172,17 @@ export default class Bubble extends React.Component {
             accessibilityTraits="text"
             {...this.props.touchableProps}
           >
-            <View>
+            <View className="thirdContainerDiv">
               {this.renderCustomView()}
               {this.renderMessageImage()}
               {this.renderMessageVideo()}
               {this.renderMessageText()}
-              <View style={[styles[this.props.position].bottom, this.props.bottomContainerStyle[this.props.position]]}>
+              <View style={[styles[this.props.position].bottom, this.props.bottomContainerStyle[this.props.position]]} className="fourthContainerDiv">
                 {this.renderUsername()}
                 {this.renderTicks()}
               </View>
             </View>
           </TouchableOpacity>
-          aaa
           {this.renderTime()}
         </View>
       </View>
