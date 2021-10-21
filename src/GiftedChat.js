@@ -180,14 +180,13 @@ class GiftedChat extends React.Component {
   }
 
   scrollToBottom(animated = true) {
-    console.log("messageContainerRef", this._messageContainerRef);
     if (this._messageContainerRef === null) {
       return;
     }
-    this._messageContainerRef.scrollTo({
+    setTimeout(() => this._messageContainerRef.scrollTo({
       y: 0,
       animated,
-    });
+    }), 1);
   }
 
 
@@ -226,7 +225,6 @@ class GiftedChat extends React.Component {
     }
 
     this.props.onSend(messages);
-    console.log("about to call this.scrollToBottom()");
     this.scrollToBottom();
 
     if (shouldResetInputToolbar === true) {
