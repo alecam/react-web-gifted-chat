@@ -123,7 +123,6 @@ export default class MessageContainer extends React.PureComponent {
     }
     return (
       <View
-        id="react-web-gifted-chat_messageContainerView"
         style={{ flex: 1 }}
         onLayout={() => {
           // this.flatListRef.current.scrollTo({x: 0, y: 0, animated: true});
