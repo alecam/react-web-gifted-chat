@@ -1774,7 +1774,7 @@ function Send(_ref) {
       onPress: function onPress() {
         onSend({
           text: text.trim()
-        }, false);
+        }, true);
       },
       accessibilityTraits: "button"
     }, React__default.createElement(ReactNative.View, null, children || React__default.createElement(ReactNative.Text, {
@@ -2218,7 +2218,8 @@ function (_Component) {
       }
 
       return React__default.createElement("div", {
-        style: styles$g.container
+        style: styles$g.container,
+        id: "react-web-gifted-chat_messageContainerDiv"
       }, ListHeaderComponent(), messages.map(this.renderItem), ListFooterComponent());
     }
   }]);
@@ -2643,7 +2644,6 @@ function (_React$Component) {
     key: "scrollToBottom",
     value: function scrollToBottom() {
       var animated = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-      console.log("messageContainerRef", this._messageContainerRef);
 
       if (this._messageContainerRef === null) {
         return;
@@ -2698,7 +2698,6 @@ function (_React$Component) {
       }
 
       this.props.onSend(messages);
-      console.log("about to call this.scrollToBottom()");
       this.scrollToBottom();
 
       if (shouldResetInputToolbar === true) {
