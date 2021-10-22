@@ -2218,8 +2218,7 @@ function (_Component) {
       }
 
       return React__default.createElement("div", {
-        style: styles$g.container,
-        id: "react-web-gifted-chat_messageContainerDiv"
+        style: styles$g.container
       }, ListHeaderComponent(), messages.map(this.renderItem), ListFooterComponent());
     }
   }]);

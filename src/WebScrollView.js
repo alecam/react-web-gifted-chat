@@ -16,7 +16,7 @@ export default class WebScrollView extends Component {
       messages = data.slice().reverse();
     }
     return (
-      <div style={styles.container} id="react-web-gifted-chat_messageContainerDiv">
+      <div style={styles.container}>
         {ListHeaderComponent()}
         {messages.map(this.renderItem)}
         {ListFooterComponent()}
