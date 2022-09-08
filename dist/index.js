@@ -1652,6 +1652,7 @@ function (_React$Component) {
 
       return React__default.createElement("textarea", Object.assign({
         testID: this.props.placeholder,
+        enterKeyHint: "send",
         accessible: true,
         onKeyDown: function onKeyDown(e) {
           return _this.onKeyDown(e);
