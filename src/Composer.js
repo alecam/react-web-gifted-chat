@@ -41,6 +41,7 @@ export default class Composer extends React.Component {
     return (
       <textarea
         testID={this.props.placeholder}
+        enterkeyhint="send"
         accessible
         onKeyDown={e => this.onKeyDown(e)}
         accessibilityLabel={this.props.placeholder}
