@@ -2219,10 +2219,10 @@ function (_Component) {
         messages = data.slice().reverse();
       }
 
-      return React__default.createElement(React__default.Fragment, null, React__default.createElement("div", {
+      return React__default.createElement("div", {
         id: id,
         style: styles$g.container
-      }, messages.map(this.renderItem), ListFooterComponent()), ListHeaderComponent());
+      }, ListHeaderComponent(), messages.map(this.renderItem), ListFooterComponent());
     }
   }]);
 
@@ -2230,14 +2230,14 @@ function (_Component) {
 }(React.Component);
 var styles$g = {
   container: {
-    height: '100%',
-    minHeight: '100%',
-    width: '100%',
-    overflow: 'auto',
-    display: 'flex',
-    flexDirection: 'column-reverse',
+    height: "100%",
+    minHeight: "100%",
+    width: "100%",
+    overflow: "auto",
+    display: "flex",
+    flexDirection: "column-reverse",
     flex: 1,
-    alignItems: 'stretch'
+    alignItems: "stretch"
   }
 };
 WebScrollView.defaultProps = {
@@ -2665,7 +2665,8 @@ function (_React$Component) {
       return React__default.createElement("div", {
         style: {
           height: "calc(100% - ".concat(this.state.composerHeight, "px)"),
-          display: 'flex'
+          display: 'flex',
+          flexDirection: 'column'
         }
       }, React__default.createElement(MessageContainer, Object.assign({}, this.props, {
         invertibleScrollViewProps: this.invertibleScrollViewProps,
