@@ -1,42 +1,48 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 
-import { FlatList, View, StyleSheet, Keyboard, TouchableOpacity, Text } from 'react-native';
+import {
+  FlatList,
+  View,
+  StyleSheet,
+  Keyboard,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 
 export default class WebScrollView extends Component {
-  renderItem =(item, index) => {
+  renderItem = (item, index) => {
     const { renderItem } = this.props;
     return renderItem({ item, index });
-  }
+  };
 
   render() {
-    const { ListHeaderComponent, ListFooterComponent, data, inverted, id } = this.props;
+    const { ListHeaderComponent, ListFooterComponent, data, inverted, id } =
+      this.props;
     let messages = data;
     if (!inverted) {
       messages = data.slice().reverse();
     }
     return (
-      <>
-        <div id={id} style={styles.container}>
-          {messages.map(this.renderItem)}
-          {ListFooterComponent()}
-        </div>
+      <div id={id} style={styles.container}>
         {ListHeaderComponent()}
-      </>
+        {messages.map(this.renderItem)}
+        {ListFooterComponent()}
+      </div>
     );
   }
 }
 
 const styles = {
   container: {
-    height: '100%',
-    minHeight: '100%',
-    width: '100%',
-    overflow: 'auto',
-    display: 'flex',
-    flexDirection: 'column-reverse',
+    height: "100%",
+    minHeight: "100%",
+    width: "100%",
+    overflow: "auto",
+    display: "flex",
+    flexDirection: "column-reverse",
     flex: 1,
-    alignItems: 'stretch',
+    alignItems: "stretch",
   },
 };
 
