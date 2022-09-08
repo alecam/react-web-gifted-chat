@@ -2219,10 +2219,10 @@ function (_Component) {
         messages = data.slice().reverse();
       }
 
-      return React__default.createElement(React__default.Fragment, null, ListHeaderComponent(), React__default.createElement("div", {
+      return React__default.createElement(React__default.Fragment, null, React__default.createElement("div", {
         id: id,
         style: styles$g.container
-      }, messages.map(this.renderItem), ListFooterComponent()));
+      }, messages.map(this.renderItem), ListFooterComponent()), ListHeaderComponent());
     }
   }]);
 
