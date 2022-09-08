@@ -17,11 +17,11 @@ export default class WebScrollView extends Component {
     }
     return (
       <>
+        {ListHeaderComponent()}
         <div id={id} style={styles.container}>
-          {ListHeaderComponent()}
           {messages.map(this.renderItem)}
+          {ListFooterComponent()}
         </div>
-        {ListFooterComponent()}
       </>
     );
   }
