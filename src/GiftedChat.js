@@ -193,7 +193,6 @@ class GiftedChat extends React.Component {
   renderMessages() {
     return (
       <div 
-        id='scrolling_container_1'
         style={{
           height: `calc(100% - ${this.state.composerHeight}px)`,
           display: 'flex',

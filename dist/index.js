@@ -2218,10 +2218,10 @@ function (_Component) {
         messages = data.slice().reverse();
       }
 
-      return React__default.createElement("div", {
+      return React__default.createElement(React__default.Fragment, null, React__default.createElement("div", {
         id: id,
         style: styles$g.container
-      }, ListHeaderComponent(), messages.map(this.renderItem), ListFooterComponent());
+      }, ListHeaderComponent(), messages.map(this.renderItem)), ListFooterComponent());
     }
   }]);
 
@@ -2402,7 +2402,7 @@ function (_React$PureComponent) {
         onLayout: function onLayout() {// this.flatListRef.current.scrollTo({x: 0, y: 0, animated: true});
         }
       }, this.state.showScrollBottom && this.props.scrollToBottom ? this.renderScrollToBottomWrapper() : null, React__default.createElement(WebScrollView, {
-        id: "scrolling_container_2",
+        id: "webchat_widget_webview",
         ref: this.flatListRef,
         keyExtractor: this.keyExtractor,
         extraData: this.props.extraData,
@@ -2662,7 +2662,6 @@ function (_React$Component) {
       var _this2 = this;
 
       return React__default.createElement("div", {
-        id: "scrolling_container_1",
         style: {
           height: "calc(100% - ".concat(this.state.composerHeight, "px)"),
           display: 'flex'

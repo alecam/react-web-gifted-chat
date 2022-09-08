@@ -131,7 +131,7 @@ export default class MessageContainer extends React.PureComponent {
       >
         {this.state.showScrollBottom && this.props.scrollToBottom ? this.renderScrollToBottomWrapper() : null}
         <WebScrollView
-          id='scrolling_container_2'
+          id='webchat_widget_webview'
           ref={this.flatListRef}
           keyExtractor={this.keyExtractor}
           extraData={this.props.extraData}

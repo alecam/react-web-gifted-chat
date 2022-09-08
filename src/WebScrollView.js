@@ -16,11 +16,13 @@ export default class WebScrollView extends Component {
       messages = data.slice().reverse();
     }
     return (
-      <div id={id} style={styles.container}>
-        {ListHeaderComponent()}
-        {messages.map(this.renderItem)}
+      <>
+        <div id={id} style={styles.container}>
+          {ListHeaderComponent()}
+          {messages.map(this.renderItem)}
+        </div>
         {ListFooterComponent()}
-      </div>
+      </>
     );
   }
 }
