@@ -2701,8 +2701,7 @@ function (_React$Component) {
         this.resetInputToolbar();
       }
 
-      this.props.onSend(messages);
-      this.scrollToBottom();
+      this.props.onSend(messages); // this.scrollToBottom();
 
       if (shouldResetInputToolbar === true) {
         setTimeout(function () {
