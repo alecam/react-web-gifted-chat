@@ -2210,7 +2210,8 @@ function (_Component) {
           ListHeaderComponent = _this$props.ListHeaderComponent,
           ListFooterComponent = _this$props.ListFooterComponent,
           data = _this$props.data,
-          inverted = _this$props.inverted;
+          inverted = _this$props.inverted,
+          id = _this$props.id;
       var messages = data;
 
       if (!inverted) {
@@ -2218,6 +2219,7 @@ function (_Component) {
       }
 
       return React__default.createElement("div", {
+        id: id,
         style: styles$g.container
       }, ListHeaderComponent(), messages.map(this.renderItem), ListFooterComponent());
     }

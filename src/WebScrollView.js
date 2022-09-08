@@ -10,13 +10,13 @@ export default class WebScrollView extends Component {
   }
 
   render() {
-    const { ListHeaderComponent, ListFooterComponent, data, inverted } = this.props;
+    const { ListHeaderComponent, ListFooterComponent, data, inverted, id } = this.props;
     let messages = data;
     if (!inverted) {
       messages = data.slice().reverse();
     }
     return (
-      <div style={styles.container}>
+      <div id={id} style={styles.container}>
         {ListHeaderComponent()}
         {messages.map(this.renderItem)}
         {ListFooterComponent()}
@@ -47,6 +47,7 @@ WebScrollView.defaultProps = {
 };
 
 WebScrollView.propTypes = {
+  id: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object),
   extraData: PropTypes.object,
   inverted: PropTypes.bool,
