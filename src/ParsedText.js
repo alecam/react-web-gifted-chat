@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactNative from 'react-native';
-import PropTypes from 'prop-types';
+import React from "react";
+import ReactNative from "react-native";
+import PropTypes from "prop-types";
 
-import TextExtraction from './TextExtraction';
+import TextExtraction from "./TextExtraction";
 
 const PATTERNS = {
-  url: /(https?:\/\/|www\.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/i,
+  url: /(https?:\/\/|www\.)[-a-zA-Z0-9@:%._\+~#=\'\"]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=\'\"]*)/i,
   phone: /[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}/,
   email: /\S+@\S+\.\S+/,
 };
@@ -17,16 +17,17 @@ const defaultParseShape = PropTypes.shape({
 
 const customParseShape = PropTypes.shape({
   ...ReactNative.Text.propTypes,
-  pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(RegExp)]).isRequired,
+  pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(RegExp)])
+    .isRequired,
 });
 
 class ParsedText extends React.Component {
-  static displayName = 'ParsedText';
+  static displayName = "ParsedText";
 
   static propTypes = {
     ...ReactNative.Text.propTypes,
     parse: PropTypes.arrayOf(
-      PropTypes.oneOfType([defaultParseShape, customParseShape]),
+      PropTypes.oneOfType([defaultParseShape, customParseShape])
     ),
     childrenProps: PropTypes.shape(ReactNative.Text.propTypes),
   };
@@ -54,30 +55,36 @@ class ParsedText extends React.Component {
   }
 
   getParsedText() {
-    if (!this.props.parse) { return this.props.children; }
-    if (typeof this.props.children !== 'string') { return this.props.children; }
+    if (!this.props.parse) {
+      return this.props.children;
+    }
+    if (typeof this.props.children !== "string") {
+      return this.props.children;
+    }
 
-    const textExtraction = new TextExtraction(this.props.children, this.getPatterns());
+    const textExtraction = new TextExtraction(
+      this.props.children,
+      this.getPatterns()
+    );
     const childrenProps = this.props.childrenProps || {};
     const props = { ...this.props };
     delete props.childrenProps;
-    return textExtraction.parse().map((props, index) => (
-      <ReactNative.Text
-        key={`parsedText-${index}`}
-        {...childrenProps}
-        {...props}
-      />
-    ));
+    return textExtraction
+      .parse()
+      .map((props, index) => (
+        <ReactNative.Text
+          key={`parsedText-${index}`}
+          {...childrenProps}
+          {...props}
+        />
+      ));
   }
 
   render() {
     const props = { ...this.props };
     delete props.childrenProps;
     return (
-      <ReactNative.Text
-        ref={ref => this._root = ref}
-        {...props}
-      >
+      <ReactNative.Text ref={(ref) => (this._root = ref)} {...props}>
         {this.getParsedText()}
       </ReactNative.Text>
     );
