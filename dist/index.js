@@ -797,7 +797,7 @@ function () {
 }();
 
 var PATTERNS = {
-  url: /(https?:\/\/|www\.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/i,
+  url: /(https?:\/\/|www\.)[-a-zA-Z0-9@:%._\+~#=\'\"]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=\'\"]*)/i,
   phone: /[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}/,
   email: /\S+@\S+\.\S+/
 };
@@ -843,7 +843,7 @@ function (_React$Component) {
         return this.props.children;
       }
 
-      if (typeof this.props.children !== 'string') {
+      if (typeof this.props.children !== "string") {
         return this.props.children;
       }
 
@@ -878,7 +878,7 @@ function (_React$Component) {
   return ParsedText;
 }(React__default.Component);
 
-ParsedText.displayName = 'ParsedText';
+ParsedText.displayName = "ParsedText";
 ParsedText.defaultProps = {
   parse: null
 };
